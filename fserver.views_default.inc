@@ -11,10 +11,9 @@ function fserver_views_default_views() {
   $view->name = 'fserver_projects';
   $view->description = 'Feature Server > Projects';
   $view->tag = 'fserver';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -152,10 +151,9 @@ function fserver_views_default_views() {
   $view->name = 'fserver_release_lookup';
   $view->description = '';
   $view->tag = 'fserver';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('fields', array(
@@ -210,7 +208,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_project_nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -254,7 +252,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_api_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -298,7 +296,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_versionextra_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -368,10 +366,9 @@ function fserver_views_default_views() {
   $view->name = 'fserver_releases';
   $view->description = 'Feature Server > Releases';
   $view->tag = 'fserver';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -629,7 +626,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_project_nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -673,7 +670,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_api_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'override' => array(
         'button' => 'Override',
@@ -728,6 +725,25 @@ function fserver_views_default_views() {
       'table' => 'node',
       'field' => 'type',
       'relationship' => 'none',
+    ),
+    'field_fserver_api_value_many_to_one' => array(
+      'operator' => 'or',
+      'value' => array(),
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => FALSE,
+        'operator' => 'field_fserver_api_value_many_to_one_op',
+        'identifier' => 'field_fserver_api_value_many_to_one',
+        'label' => 'Content: Core compatibility (field_fserver_api) - Allowed values',
+        'remember' => FALSE,
+        'single' => TRUE,
+        'optional' => TRUE,
+        'reduce' => FALSE,
+      ),
+      'id' => 'field_fserver_api_value_many_to_one',
+      'table' => 'node_data_field_fserver_api',
+      'field' => 'field_fserver_api_value_many_to_one',
     ),
   ));
   $handler->override_option('access', array(
@@ -813,7 +829,7 @@ function fserver_views_default_views() {
     'field_fserver_recommended_value_many_to_one' => array(
       'operator' => 'or',
       'value' => array(
-        '1' => '1',
+        1 => '1',
       ),
       'group' => '0',
       'exposed' => FALSE,
@@ -857,7 +873,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_project_nid',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
@@ -883,6 +899,72 @@ function fserver_views_default_views() {
       ),
     ),
   ));
+  $handler->override_option('filters', array(
+    'status' => array(
+      'operator' => '=',
+      'value' => '1',
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'status',
+      'table' => 'node',
+      'field' => 'status',
+      'relationship' => 'none',
+    ),
+    'type' => array(
+      'operator' => 'in',
+      'value' => array(
+        'fserver_release' => 'fserver_release',
+      ),
+      'group' => '0',
+      'exposed' => FALSE,
+      'expose' => array(
+        'operator' => FALSE,
+        'label' => '',
+      ),
+      'id' => 'type',
+      'table' => 'node',
+      'field' => 'type',
+      'relationship' => 'none',
+    ),
+    'field_fserver_api_value_many_to_one' => array(
+      'operator' => 'or',
+      'value' => array(),
+      'group' => '0',
+      'exposed' => TRUE,
+      'expose' => array(
+        'use_operator' => 0,
+        'operator' => 'field_fserver_api_value_many_to_one_op',
+        'identifier' => 'field_fserver_api_value_many_to_one',
+        'label' => 'API version',
+        'optional' => 1,
+        'single' => 0,
+        'remember' => 0,
+        'reduce' => 0,
+      ),
+      'id' => 'field_fserver_api_value_many_to_one',
+      'table' => 'node_data_field_fserver_api',
+      'field' => 'field_fserver_api_value_many_to_one',
+      'override' => array(
+        'button' => 'Use default',
+      ),
+      'relationship' => 'none',
+      'reduce_duplicates' => 0,
+    ),
+  ));
+  $handler->override_option('use_ajax', TRUE);
+  $handler->override_option('style_plugin', 'default');
+  $handler->override_option('style_options', array());
+  $handler->override_option('row_plugin', 'node');
+  $handler->override_option('row_options', array(
+    'relationship' => 'none',
+    'build_mode' => 'teaser',
+    'links' => 1,
+    'comments' => 0,
+  ));
   $handler->override_option('path', 'node/%/releases');
   $handler->override_option('menu', array(
     'type' => 'tab',
@@ -906,10 +988,9 @@ function fserver_views_default_views() {
   $view->name = 'fserver_updates';
   $view->description = 'Feature Server > Update feed';
   $view->tag = 'fserver';
-  $view->view_php = '';
   $view->base_table = 'node';
-  $view->is_cacheable = FALSE;
-  $view->api_version = 2;
+  $view->core = 0;
+  $view->api_version = '2';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
   $handler = $view->new_display('default', 'Defaults', 'default');
   $handler->override_option('relationships', array(
@@ -1539,7 +1620,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_name_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'field_fserver_project_nid',
       'default_options_div_prefix' => '',
@@ -1579,7 +1660,7 @@ function fserver_views_default_views() {
       'field' => 'field_fserver_api_value',
       'validate_user_argument_type' => 'uid',
       'validate_user_roles' => array(
-        '2' => 0,
+        2 => 0,
       ),
       'relationship' => 'none',
       'default_options_div_prefix' => '',
