@@ -860,7 +860,7 @@ function fserver_views_default_views() {
       'style_options' => array(),
       'wildcard' => 'all',
       'wildcard_substitution' => 'All',
-      'title' => '%1',
+      'title' => 'Releases for %1',
       'breadcrumb' => '',
       'default_argument_type' => 'node',
       'default_argument' => '',
@@ -889,13 +889,21 @@ function fserver_views_default_views() {
       ),
       'validate_argument_node_access' => 0,
       'validate_argument_nid_type' => 'nid',
-      'validate_argument_vocabulary' => array(),
+      'validate_argument_vocabulary' => array(
+        1 => 0,
+      ),
       'validate_argument_type' => 'tid',
       'validate_argument_transform' => 0,
       'validate_user_restrict_roles' => 0,
       'validate_argument_php' => '',
       'override' => array(
         'button' => 'Use default',
+      ),
+      'default_taxonomy_tid_term_page' => 0,
+      'default_taxonomy_tid_node' => 0,
+      'default_taxonomy_tid_limit' => 0,
+      'default_taxonomy_tid_vids' => array(
+        1 => 0,
       ),
     ),
   ));
