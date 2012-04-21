@@ -1,0 +1,6 @@
+*~
+*.orig
+*.rej
+*.patch
+*.diff
+.directory
