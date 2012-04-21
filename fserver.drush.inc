@@ -228,7 +228,15 @@ class FserverProject {
       $node->type = 'fserver_release';
       $node->status = 1;
       $node->created = !empty($tag['timestamp']) ? $tag['timestamp'] : time();
-      $node->uid = $this->node->uid;
+       
+      // Use uid of supplied option as release node uid
+      if (drush_get_option(array('u', 'user'))) {
+        global $user;
+        $node->uid = $user->uid;
+      }
+      else {
+        $node->uid = $this->node->uid;
+      }
       $node->title = "{$this->name} {$tag_id}";
       $node->body = !empty($tag['message']) ? $tag['message'] : '';
 
