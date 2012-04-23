@@ -107,6 +107,238 @@ function fserver_content_default_fields() {
     ),
   );
 
+  // Exported field: field_fserver_changelog
+  $fields['fserver_project-field_fserver_changelog'] = array(
+    'field_name' => 'field_fserver_changelog',
+    'type_name' => 'fserver_project',
+    'display_settings' => array(
+      'weight' => '7',
+      'parent' => 'group_project_resources',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'link',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'link',
+    'active' => '1',
+    'attributes' => array(
+      'target' => 'default',
+      'rel' => '',
+      'class' => '',
+      'title' => '',
+    ),
+    'display' => array(
+      'url_cutoff' => '80',
+    ),
+    'url' => 0,
+    'title' => 'value',
+    'title_value' => 'View commits',
+    'enable_tokens' => '',
+    'validate_url' => 1,
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'url' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Changelog',
+      'weight' => '7',
+      'description' => 'Link to changelog.',
+      'type' => 'link',
+      'module' => 'link',
+    ),
+  );
+
+  // Exported field: field_fserver_demo
+  $fields['fserver_project-field_fserver_demo'] = array(
+    'field_name' => 'field_fserver_demo',
+    'type_name' => 'fserver_project',
+    'display_settings' => array(
+      'weight' => '8',
+      'parent' => 'group_project_resources',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'link',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'link',
+    'active' => '1',
+    'attributes' => array(
+      'target' => 'default',
+      'rel' => '',
+      'class' => '',
+      'title' => '',
+    ),
+    'display' => array(
+      'url_cutoff' => '80',
+    ),
+    'url' => 0,
+    'title' => 'value',
+    'title_value' => 'Try out a demonstration',
+    'enable_tokens' => '',
+    'validate_url' => 1,
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'url' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Demo site',
+      'weight' => '8',
+      'description' => 'Link to a live demo.',
+      'type' => 'link',
+      'module' => 'link',
+    ),
+  );
+
+  // Exported field: field_fserver_documentation
+  $fields['fserver_project-field_fserver_documentation'] = array(
+    'field_name' => 'field_fserver_documentation',
+    'type_name' => 'fserver_project',
+    'display_settings' => array(
+      'weight' => '5',
+      'parent' => 'group_project_resources',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'link',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'link',
+    'active' => '1',
+    'attributes' => array(
+      'target' => 'default',
+      'rel' => '',
+      'class' => '',
+      'title' => '',
+    ),
+    'display' => array(
+      'url_cutoff' => '80',
+    ),
+    'url' => 0,
+    'title' => 'value',
+    'title_value' => 'Read documentation',
+    'enable_tokens' => '',
+    'validate_url' => 1,
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'url' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Documentation',
+      'weight' => '5',
+      'description' => 'Link to project documentation.',
+      'type' => 'link',
+      'module' => 'link',
+    ),
+  );
+
+  // Exported field: field_fserver_homepage
+  $fields['fserver_project-field_fserver_homepage'] = array(
+    'field_name' => 'field_fserver_homepage',
+    'type_name' => 'fserver_project',
+    'display_settings' => array(
+      'weight' => '4',
+      'parent' => 'group_project_resources',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'link',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'link',
+    'active' => '1',
+    'attributes' => array(
+      'target' => 'default',
+      'rel' => '',
+      'class' => '',
+      'title' => '',
+    ),
+    'display' => array(
+      'url_cutoff' => '80',
+    ),
+    'url' => 0,
+    'title' => 'value',
+    'title_value' => 'Home page',
+    'enable_tokens' => '',
+    'validate_url' => 1,
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'url' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Homepage',
+      'weight' => '4',
+      'description' => 'Link to project homepage.',
+      'type' => 'link',
+      'module' => 'link',
+    ),
+  );
+
   // Exported field: field_fserver_method
   $fields['fserver_project-field_fserver_method'] = array(
     'field_name' => 'field_fserver_method',
@@ -148,7 +380,7 @@ function fserver_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Packaging method',
-      'weight' => '1',
+      'weight' => '-2',
       'description' => 'Choose the packaging method to use for this project.',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
@@ -211,19 +443,20 @@ function fserver_content_default_fields() {
     'field_name' => 'field_fserver_redirect',
     'type_name' => 'fserver_project',
     'display_settings' => array(
+      'weight' => 0,
+      'parent' => '',
       'label' => array(
         'format' => 'above',
-        'exclude' => 0,
-      ),
-      '5' => array(
-        'format' => 'default',
-        'exclude' => 0,
       ),
       'teaser' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
       'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '5' => array(
         'format' => 'default',
         'exclude' => 0,
       ),
@@ -261,7 +494,7 @@ function fserver_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Redirect URL (for legacy projects)',
-      'weight' => '3',
+      'weight' => 0,
       'description' => 'Enter a redirect URL to use for this project\'s update XML feed if this project has moved.',
       'type' => 'text_textfield',
       'module' => 'text',
@@ -312,10 +545,126 @@ function fserver_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Repository URL',
-      'weight' => '2',
+      'weight' => '-1',
       'description' => 'Example: git://github.com/myname/myproject.git',
       'type' => 'text_textfield',
       'module' => 'text',
+    ),
+  );
+
+  // Exported field: field_fserver_repoviewer
+  $fields['fserver_project-field_fserver_repoviewer'] = array(
+    'field_name' => 'field_fserver_repoviewer',
+    'type_name' => 'fserver_project',
+    'display_settings' => array(
+      'label' => array(
+        'format' => 'above',
+        'exclude' => 0,
+      ),
+      'teaser' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'link',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'link',
+    'active' => '1',
+    'attributes' => array(
+      'target' => 'default',
+      'rel' => '',
+      'class' => '',
+      'title' => '',
+    ),
+    'display' => array(
+      'url_cutoff' => '80',
+    ),
+    'url' => 0,
+    'title' => 'value',
+    'title_value' => 'Repository viewer',
+    'enable_tokens' => '',
+    'validate_url' => 1,
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'title' => '',
+          'url' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Repository viewer',
+      'weight' => '9',
+      'description' => 'Link to repository viewer, e.g. gitweb.',
+      'type' => 'link',
+      'module' => 'link',
+    ),
+  );
+
+  // Exported field: field_fserver_screenshots
+  $fields['fserver_project-field_fserver_screenshots'] = array(
+    'field_name' => 'field_fserver_screenshots',
+    'type_name' => 'fserver_project',
+    'display_settings' => array(
+      'weight' => '6',
+      'parent' => 'group_project_resources',
+      'label' => array(
+        'format' => 'hidden',
+      ),
+      'teaser' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      'full' => array(
+        'format' => 'hidden',
+        'exclude' => 0,
+      ),
+      '4' => array(
+        'format' => 'default',
+        'exclude' => 0,
+      ),
+    ),
+    'widget_active' => '1',
+    'type' => 'link',
+    'required' => '0',
+    'multiple' => '0',
+    'module' => 'link',
+    'active' => '1',
+    'attributes' => array(
+      'target' => 'default',
+      'rel' => '',
+      'class' => '',
+      'title' => '',
+    ),
+    'display' => array(
+      'url_cutoff' => '80',
+    ),
+    'url' => 0,
+    'title' => 'value',
+    'title_value' => 'Screenshots',
+    'enable_tokens' => '',
+    'validate_url' => 1,
+    'widget' => array(
+      'default_value' => array(
+        '0' => array(
+          'url' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
+      'label' => 'Screenshots',
+      'weight' => '6',
+      'description' => 'Link to project screenshots.',
+      'type' => 'link',
+      'module' => 'link',
     ),
   );
 
@@ -360,7 +709,7 @@ function fserver_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Type',
-      'weight' => '-2',
+      'weight' => '-3',
       'description' => '',
       'type' => 'optionwidgets_select',
       'module' => 'optionwidgets',
@@ -500,14 +849,6 @@ function fserver_content_default_fields() {
     'advanced_view' => '--',
     'advanced_view_args' => '',
     'widget' => array(
-      'autocomplete_match' => 'contains',
-      'size' => 60,
-      'default_value' => array(
-        '0' => array(
-          'nid' => '',
-        ),
-      ),
-      'default_value_php' => NULL,
       'node_link' => array(
         'teaser' => 0,
         'full' => 0,
@@ -517,6 +858,14 @@ function fserver_content_default_fields() {
       ),
       'fallback' => 'select',
       'edit_fallback' => 0,
+      'autocomplete_match' => 'contains',
+      'size' => 60,
+      'default_value' => array(
+        '0' => array(
+          'nid' => '',
+        ),
+      ),
+      'default_value_php' => NULL,
       'label' => 'Project',
       'weight' => '-12',
       'description' => 'Select your project from the box.',
@@ -880,11 +1229,15 @@ function fserver_content_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Changelog');
   t('Core compatibility');
+  t('Demo site');
+  t('Documentation');
   t('Drush Make Script');
   t('Extra version');
   t('Extra version number');
   t('Extra version type');
+  t('Homepage');
   t('Machine name');
   t('Major version');
   t('Package');
@@ -894,6 +1247,8 @@ function fserver_content_default_fields() {
   t('Recommended');
   t('Redirect URL (for legacy projects)');
   t('Repository URL');
+  t('Repository viewer');
+  t('Screenshots');
   t('Security release');
   t('Type');
 
