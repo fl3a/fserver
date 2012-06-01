@@ -4,6 +4,328 @@
  */
 
 /**
+ * Implementation of hook_install().
+ */
+function fserver_install() {
+  
+  if (!module_exists('taxonomy')) {
+    module_enable(array('taxonomy'));
+  }
+
+  $vocabulary = array(
+    'name' => t("Modules categories"),
+    'multiple' => 1,
+    'required' => 0,
+    'hierarchy' => 0,
+    'relations' => 0,
+    'module' => 'fserver',
+    'nodes' => array(
+      'fserver_project' => 1,
+      'fserver_distro' => 1,
+    ),
+    'weight' => -9, 
+  );
+  taxonomy_save_vocabulary($vocabulary);
+
+  $vocabs = taxonomy_get_vocabularies(NULL);
+  foreach ($vocabs as $vocab_object) {
+    if ($vocab_object->name == 'Modules categories') {
+      $vid = $vocab_object->vid;
+    }
+  }
+
+  $vid = $names['Modules categories']->vid;
+
+  $term = array(
+      'name' => 'Administration',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Commerce/Advertising',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Community',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Content',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Content Access Control',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Content Construction Kit (CCK)',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Content Display',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Database Drivers',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Developer',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Drush',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'E-commerce',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Evaluation/Rating',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Event',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Examples',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Features Package',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Fields',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'File Management',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Filters/Editors',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Games and Amusements',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Import/Export',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'JavaScript Utilities',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Location',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Mail',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Media',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Mobile',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Multilingual',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Multisite',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Novelty',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Organic Groups (OG)',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Paging',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Path Management',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Performance and Scalability',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Project management',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'RDF',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Rules',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Search',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Security',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Site Navigation',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Statistics',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Spam Prevention',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Syndication',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Taxonomy',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Theme Enhancements',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Third-party Integration',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'User Access &amp; Authentication',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'User Management',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Utility',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term);
+
+  $term = array(
+      'name' => 'Views',
+      'vid' => $vid,
+  );
+  taxonomy_save_term($term); 
+}
+
+/**
  * Split the extraversion release column into separate fields to allow for more consistent ordering.
  */
 function fserver_update_6001() {
@@ -49,332 +371,5 @@ function fserver_update_6001() {
 
   return $ret;
 }
-/**
- * Add 'Modules catogories' vocabulary with predefined terms
- */
-function fserver_update_6002() {
-  $ret = array();
-  $ret[] = array(
-    'success' => TRUE,
-    'query' => "Added 'Modules catogories' vocabulary with predefined terms.",
-  );
 
-  if (!module_exists('taxonomy')) {
-    module_enable(array('taxonomy'));	
-  }  
-
-  $vocabulary = array(
-    'name' => t("Modules categories"), 
-    'multiple' => 1, 
-    'required' => 0, 
-    'hierarchy' => 0, 
-    'relations' => 0, 
-    'module' => 'fserver', 
-    'nodes' => array(
-      'fserver_project' => 1,
-      'fserver_distro' => 1,
-     ),
-    'weight' => -9, //set the weight to display the vocabulary in the list
-  );
-  taxonomy_save_vocabulary($vocabulary); 
-  
-  $vocabs = taxonomy_get_vocabularies(NULL);
-  foreach ($vocabs as $vocab_object) {
-    if ($vocab_object->name == 'Modules categories') {
-      $vid = $vocab_object->vid;
-    } 
-  }
-
-  $vid = $names['Modules categories']->vid;
-
-  $term = array(
-    'name' => 'Administration',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
-  
-  $term = array(
-    'name' => 'Commerce/Advertising',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Community',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Content',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Content Access Control',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Content Construction Kit (CCK)',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Content Display',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Database Drivers',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Developer',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Drush',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'E-commerce',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Evaluation/Rating',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Event',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Examples',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Features Package',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Fields',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'File Management',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Filters/Editors',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Games and Amusements',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Import/Export',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'JavaScript Utilities',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Location',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Mail',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Media',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Mobile',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Multilingual',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Multisite',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Novelty',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Organic Groups (OG)',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Paging',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Path Management',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Performance and Scalability',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Project management',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'RDF',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Rules',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Search',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Security',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Site Navigation',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Statistics',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Spam Prevention',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Syndication',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Taxonomy',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Theme Enhancements',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Third-party Integration',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'User Access &amp; Authentication',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'User Management',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Utility',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
- 
-  $term = array(
-    'name' => 'Views',
-    'vid' => $vid,
-  );
-  taxonomy_save_term($term);
-
-  return $ret;
-}
 
