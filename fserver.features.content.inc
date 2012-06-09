@@ -443,7 +443,7 @@ function fserver_content_default_fields() {
     'field_name' => 'field_fserver_redirect',
     'type_name' => 'fserver_project',
     'display_settings' => array(
-      'weight' => 0,
+      'weight' => '1',
       'parent' => '',
       'label' => array(
         'format' => 'above',
@@ -557,16 +557,17 @@ function fserver_content_default_fields() {
     'field_name' => 'field_fserver_repoviewer',
     'type_name' => 'fserver_project',
     'display_settings' => array(
+      'weight' => '9',
+      'parent' => 'group_project_resources',
       'label' => array(
-        'format' => 'above',
-        'exclude' => 0,
+        'format' => 'hidden',
       ),
       'teaser' => array(
-        'format' => 'default',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       'full' => array(
-        'format' => 'default',
+        'format' => 'hidden',
         'exclude' => 0,
       ),
       '4' => array(
