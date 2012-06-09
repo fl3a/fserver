@@ -257,3 +257,24 @@ function fserver_generate_version($node, $raw = FALSE) {
   $version = "{$core}-{$major}.{$patch}" . (!empty($extra) ? "-{$extra}" : '');
   return $raw ? $version : "{$project->title} $version";
 }
+
+/**
+ * Implementation of hook_theme().
+ */
+function fserver_theme() {
+  $theme_hooks =  array();
+  $preprocess_functions = array(
+    'template_preprocess', 
+    'template_preprocess_views_view'
+  );
+  $theme_hooks['views_view__fserver_resources__block'] = array(
+    'arguments' => array(
+      'view' => '',
+    ),
+    'path' => drupal_get_path('module', 'fserver') . '/views',
+    'template' => 'views-view--fserver-resources--block',
+    'original hook' => 'views_view',
+    'preprocess functions' => $preprocess_functions,    
+  );
+  return $theme_hooks;
+}

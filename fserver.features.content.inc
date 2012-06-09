@@ -494,7 +494,7 @@ function fserver_content_default_fields() {
       ),
       'default_value_php' => NULL,
       'label' => 'Redirect URL (for legacy projects)',
-      'weight' => 0,
+      'weight' => '1',
       'description' => 'Enter a redirect URL to use for this project\'s update XML feed if this project has moved.',
       'type' => 'text_textfield',
       'module' => 'text',
