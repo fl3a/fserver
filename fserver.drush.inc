@@ -22,20 +22,41 @@
 function fserver_drush_command() {
   $items = array();
   $items['fserver-status'] = array(
-    'description' => 'Determine the packaging status of a project.',
+   'description' => 'Determine the packaging status of a project.',
+   'arguments' => array(
+      'project'  => 'Machine name of project to display packaging status for, optional, default all projects.',
+    ),    
+    'examples' => array(
+      'drush fserver-status' => 'Display packaging status for all projects.',
+      'drush fserver-status fserver' => 'Display packaging status for project fserver.',
+    ),
   );
   $items['fserver-package'] = array(
     'description' => 'Update packaging for a project.',
     'options' => array(
       'user' =>  "User or uid for release node uid. @see also 'drush topic core-global-options'",
     ),
+    'arguments' => array(
+      'project'  => 'Machine name of project to create a release for, optional, default all projects.',
+    ),    
     'examples' => array(
-      'drush feature-package fserver' => 'Create release node for project fserver.',
-      'drush feature-package --user=bot.marvin' => 'Create release node for all projects and use uid of supplied option as uid for release nodes.',
+      'drush fserver-package fserver' => 'Create release node for project fserver.',
+      'drush fserver-package --user=bot.marvin' => 'Create release node for all projects and use uid of supplied option as uid for release nodes.',
     ),
   );
   $items['fserver-distro'] = array(
     'description' => 'Update packaging for a distribution.',
+    'options' => array(
+      'version' =>  'Version for release, mandatory.',
+      'user' =>  "User or uid for release node uid. @see also 'drush topic core-global-options'",
+    ),
+    'arguments' => array(
+      'distro'  => 'Machine name of distro to create a release for.',
+    ),    
+    'examples' => array(
+      'drush fserver-distro --version=6.x-1.0 fserver6_profile' => 'Create release node for distro fserver6_profile with version 6.x-1.0.',
+    ),
+
   );
   return $items;
 }
@@ -410,7 +431,16 @@ class FserverProject_git {
           drush_op('chgrp', "{$file_path}/{$base}.tgz", fserver_posix_groupname());
 
           $file = new stdClass();
-          $file->uid = $this->node->uid;
+
+          // Use uid of supplied option as release file uid
+          if (drush_get_option(array('u', 'user'))) {
+            global $user;
+            $file->uid = $user->uid;
+          }
+          else {
+            $file->uid = $this->node->uid;
+          }
+
           $file->filename = "{$base}.tgz";
           $file->filepath = "{$file_path}/{$base}.tgz";
           $file->filemime = file_get_mimetype($file->filename);
@@ -742,7 +772,16 @@ class FserverDistro {
       $node->type = 'fserver_release';
       $node->status = 1;
       $node->created = !empty($tag['timestamp']) ? $tag['timestamp'] : time();
-      $node->uid = $this->node->uid;
+
+      // Use uid of supplied option as release node uid
+      if (drush_get_option(array('u', 'user'))) {
+        global $user;
+        $node->uid = $user->uid;
+      }
+      else {
+        $node->uid = $this->node->uid;
+      }
+      
       $node->title = "{$this->name} {$tag_id}";
       $node->body = !empty($tag['message']) ? $tag['message'] : '';
 
@@ -797,7 +836,16 @@ class FserverDistro {
       drush_op('chgrp', "{$file_path}/{$base}.tgz", fserver_posix_groupname());
 
       $file = new stdClass();
-      $file->uid = $this->node->uid;
+
+      // Use uid of supplied option as file uid
+      if (drush_get_option(array('u', 'user'))) {
+        global $user;
+        $file->uid = $user->uid;
+      }
+      else {
+        $file->uid = $this->node->uid;
+      }
+
       $file->filename = "{$base}.tgz";
       $file->filepath = "{$file_path}/{$base}.tgz";
       $file->filemime = file_get_mimetype($file->filename);
