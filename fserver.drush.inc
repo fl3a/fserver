@@ -26,6 +26,13 @@ function fserver_drush_command() {
   );
   $items['fserver-package'] = array(
     'description' => 'Update packaging for a project.',
+    'options' => array(
+      'user' =>  "User or uid for release node uid. @see also 'drush topic core-global-options'",
+    ),
+    'examples' => array(
+      'drush feature-package fserver' => 'Create release node for project fserver.',
+      'drush feature-package --user=bot.marvin' => 'Create release node for all projects and use uid of supplied option as uid for release nodes.',
+    ),
   );
   $items['fserver-distro'] = array(
     'description' => 'Update packaging for a distribution.',
