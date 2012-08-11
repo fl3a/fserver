@@ -823,8 +823,15 @@ class FserverDistro {
     $file_path = file_directory_path() .'/fserver';
     // Create the directory if it doesn't exist.
     if (file_check_directory($file_path, TRUE)) {
-      $makefile = $this->node->field_fserver_drushmake[0]['value'];
-      drush_invoke_process('@self', 'make', array("$makefile", "{$file_path}/{$base}"), array("--tar"));
+      $drush_info = drush_read_drush_info();
+      if ($drush_info['drush_version'] >= 5 ) {
+        drush_print('>= v.5');
+        $makefile = $this->node->field_fserver_drushmake[0]['value'];
+        drush_invoke_process('@self', 'make', array("$makefile", "{$file_path}/{$base}"), array("--tar"));
+      }
+      else {
+        drush_backend_invoke('make', array("{$this->path}/{$base}.make", "{$file_path}/{$base}", "--tar"))        
+      }
       drush_op('drush_shell_exec', "mv {$file_path}/{$base}.tar.gz {$file_path}/{$base}.tgz");
 
       // @TODO
