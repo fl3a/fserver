@@ -830,7 +830,7 @@ class FserverDistro {
         drush_invoke_process('@self', 'make', array("$makefile", "{$file_path}/{$base}"), array("--tar"));
       }
       else {
-        drush_backend_invoke('make', array("{$this->path}/{$base}.make", "{$file_path}/{$base}", "--tar"))        
+        drush_backend_invoke('make', array("{$this->path}/{$base}.make", "{$file_path}/{$base}", "--tar"));
       }
       drush_op('drush_shell_exec', "mv {$file_path}/{$base}.tar.gz {$file_path}/{$base}.tgz");
 
